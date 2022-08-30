@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CounteDown Timer..!!!</title>
+    <style>
+      body {
+        margin-top: 30px;
+        padding: 10px;
+        box-sizing: border-box;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url(./pexels-andy-vu-3244513.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+      h1 {
+        text-align: center;
+        color: white;
+        text-shadow: 5px 10px 20px white;
+        font-size: 50px;
+      }
+      .main {
+        color: white;
+        text-shadow: 5px 10px 20px white;
+        font-size: 50px;
+        border: 5px solid white;
+        border-radius: 50px;
+        box-shadow: 6px 10px 25px white;
+        height: 60vh;
+        width: 70%;
+        text-align: center;
+        margin: auto;
+      }
+      #timer {
+        color: white;
+        text-shadow: 5px 10px 20px white;
+        font-size: 80px;
+        margin-top: 12%;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Countdown begins</h1>
+    <div class="main">
+      <div id="timer"></div>
+    </div>
+
+    <script>
+      var dest = new Date("dec 1,2022 12:00:00").getTime();
+
+      var x = setInterval(function () {
+
+        // var audio = new Audio("./mixkit-clock-countdown-bleeps-916.wav");
+        var now = new Date().getTime();
+
+        var diff = dest - now;
+        // console.log(diff);
+
+        var days =Math.floor(diff / (1000 * 60 * 60 * 24));
+        // console.log(days);
+
+        var hours = Math.floor(
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        // console.log(hours);
+
+        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        // console.log(minutes);
+
+        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        // console.log(seconds);
+
+        // var aud = audio.play();
+        document.getElementById("timer").innerHTML =
+          days + "D:" + hours + "Hr:" + minutes + "Min:" + seconds + "Sec"; }, 1000);
+    </script>
+  </body>
+</html>
